@@ -15,6 +15,10 @@ class Statsd
     result
   end
 
+  def elapsed(stat, time)
+    timing(stat, (time * 1000).round)
+  end
+
   def inc(stat, delta = 1)
     announce :action => "inc", :delta => delta, :name => stat
   end
